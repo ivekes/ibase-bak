@@ -450,7 +450,6 @@ public class EsUtil {
 			long nbHits = esUtil.multiSearchAndPage("index-demo", "type-demo", 4, paramMap);
 			Assert.assertEquals(1, nbHits);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

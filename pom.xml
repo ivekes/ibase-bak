@@ -19,6 +19,7 @@
         <module>ibase-other</module>
         <module>ibase-java8</module>
         <module>ibase-balll</module>
+        <module>ibase-mq-rocketmq</module>
     </modules>
     <packaging>pom</packaging>
     <name>ibase</name>
