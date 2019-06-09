@@ -20,6 +20,7 @@
         <module>ibase-java8</module>
         <module>ibase-balll</module>
         <module>ibase-mq-rocketmq</module>
+        <module>ibase-java</module>
     </modules>
     <packaging>pom</packaging>
     <name>ibase</name>
