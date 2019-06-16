@@ -1,6 +1,6 @@
-package com.wzk.rpc.server;
+package com.wzk.rpc.v2.server;
 
-import com.wzk.rpc.api.RpcRequest;
+import com.wzk.rpc.v2.RpcRequest;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -8,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.Socket;
+import java.util.Map;
 
 /**
  * @author ivekes
@@ -16,11 +17,11 @@ import java.net.Socket;
 public class ProcessorHandler implements Runnable {
 
     private Socket socket;
-    private Object service;
+    private Map<String,Object> handlerMap;
 
-    public ProcessorHandler(Socket socket, Object service) {
+    public ProcessorHandler(Socket socket, Map<String,Object> handlerMap) {
         this.socket = socket;
-        this.service = service;
+        this.handlerMap = handlerMap;
     }
 
     @Override
@@ -55,6 +56,11 @@ public class ProcessorHandler implements Runnable {
     }
 
     private Object invoke(RpcRequest rpcRequest) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Object service = handlerMap.get(rpcRequest.getClassName());
+        if (service == null){
+            throw new RuntimeException("service not found:" + rpcRequest.getClassName());
+        }
+
         Object[] args = rpcRequest.getParameters();
         Class[] types = null;
         if (args != null) {

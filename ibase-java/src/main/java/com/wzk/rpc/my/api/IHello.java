@@ -1,4 +1,4 @@
-package com.wzk.rpc.api;
+package com.wzk.rpc.my.api;
 
 /**
  * @author ivekes

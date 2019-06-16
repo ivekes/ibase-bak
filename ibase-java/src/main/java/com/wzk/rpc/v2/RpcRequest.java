@@ -1,4 +1,4 @@
-package com.wzk.rpc.api;
+package com.wzk.rpc.v2;
 
 import java.io.Serializable;
 import java.util.Arrays;

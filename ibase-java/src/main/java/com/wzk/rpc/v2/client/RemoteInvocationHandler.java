@@ -1,6 +1,6 @@
-package com.wzk.rpc.client;
+package com.wzk.rpc.v2.client;
 
-import com.wzk.rpc.api.RpcRequest;
+import com.wzk.rpc.v2.RpcRequest;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

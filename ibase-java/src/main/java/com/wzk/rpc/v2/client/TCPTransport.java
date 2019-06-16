@@ -1,6 +1,6 @@
-package com.wzk.rpc.client;
+package com.wzk.rpc.v2.client;
 
-import com.wzk.rpc.api.RpcRequest;
+import com.wzk.rpc.v2.RpcRequest;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -12,8 +12,8 @@ import java.net.Socket;
  * @date 2019/06/09
  */
 public class TCPTransport {
-    public String host;
-    public Integer port;
+    private String host;
+    private Integer port;
 
     public TCPTransport(String host, Integer port) {
         this.host = host;
@@ -24,7 +24,7 @@ public class TCPTransport {
         try {
             return new Socket(host,port);
         } catch (IOException e) {
-            throw new RuntimeException("连接建立失败");
+            throw new RuntimeException("连接建立失败",e);
         }
     }
 
@@ -39,7 +39,7 @@ public class TCPTransport {
             objectInputStream = new ObjectInputStream(socket.getInputStream());
             return objectInputStream.readObject();
         } catch (Exception e) {
-            throw new RuntimeException("发起远程调用异常");
+            throw new RuntimeException("发起远程调用异常",e);
         }finally {
             if (objectOutputStream != null){
                 try {

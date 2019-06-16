@@ -1,4 +1,4 @@
-package com.wzk.rpc.client;
+package com.wzk.rpc.v2.client;
 
 
 import java.lang.reflect.Proxy;
