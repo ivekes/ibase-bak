@@ -17,7 +17,6 @@
         <module>ibase-ball-service</module>
         <module>ibase-ball-controller</module>
         <module>ibase-ball-web</module>
-        <module>ibase-ball-web</module>
     </modules>
 
 
